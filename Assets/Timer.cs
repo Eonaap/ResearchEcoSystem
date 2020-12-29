@@ -9,9 +9,12 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField]
     private Text timerText;
+    
 
     [SerializeField]
     private Text timeSpeedText;
+
+    private int timeMultiplier;
 
     private float time;
     void Start()
@@ -26,6 +29,7 @@ public class Timer : MonoBehaviour
         {
             timeSpeedText = GameObject.FindGameObjectWithTag("TimeSpeed").GetComponentInChildren<Text>();
         }
+        timeMultiplier = 1;
         timeSpeedText.text = "1";
     }
 
@@ -38,14 +42,18 @@ public class Timer : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P))
         {
-            Time.timeScale++;
-            timeSpeedText.text = Time.timeScale.ToString();
+            timeMultiplier++;
+            Time.timeScale = timeMultiplier;
+            timeSpeedText.text = timeMultiplier.ToString();
         }
 
         if (Input.GetKeyDown(KeyCode.O))
         {
-            Time.timeScale--;
-            timeSpeedText.text = Time.timeScale.ToString();
+            if (timeMultiplier > 0)
+                timeMultiplier--;
+
+            Time.timeScale = timeMultiplier;
+            timeSpeedText.text = timeMultiplier.ToString();
         }
     }
 }

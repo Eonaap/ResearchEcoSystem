@@ -21,8 +21,10 @@ public class status : MonoBehaviour
 
     [SerializeField]
     private float drinkCooldown;
+    private float eatCooldown;
 
     private float currentDrinkCooldown;
+    private float currentEatCooldown;
     void Start()
     {
         currentHealth = maxHealth;
@@ -37,6 +39,9 @@ public class status : MonoBehaviour
     {
         currentThirst -= Time.deltaTime;
         currentHunger -= Time.deltaTime;
+
+        if (currentHealth < maxHealth)
+            currentHealth += Time.deltaTime * 0.1f;
 
         hungerBar.fillAmount = currentHunger / maxHunger;
         thirstBar.fillAmount = currentThirst / maxThirst;
@@ -55,10 +60,14 @@ public class status : MonoBehaviour
         {
             currentDrinkCooldown -= Time.deltaTime;
         }
+        if (currentEatCooldown > 0.0f)
+        {
+            currentEatCooldown -= Time.deltaTime;
+        }
 
         if (currentHunger == 0.0f)
         {
-            Debug.Log("You're dying");
+            //Debug.Log("You're dying");
             if (currentThirst == 0.0f)
             {
                 currentHealth -= 1.5f * Time.deltaTime;
@@ -68,19 +77,28 @@ public class status : MonoBehaviour
                 currentHealth -= 0.75f * Time.deltaTime;
             }
         }
+
+        if (currentHealth <= 0.0f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void Eat()
     {
-        Debug.Log("Eating");
+        //Debug.Log("Eating");
         currentHunger += 25.0f;
         if (currentHunger > maxHunger)
+        {
             currentHunger = maxHunger;
+            currentEatCooldown = eatCooldown;
+        }
+            
     }
 
     public void Drink()
     {
-        Debug.Log("Drinking");
+        //Debug.Log("Drinking");
         currentThirst += 25.0f;
         if (currentThirst > maxThirst)
         {
@@ -90,9 +108,34 @@ public class status : MonoBehaviour
             
     }
 
+    public bool IsThirsty()
+    {
+        if (currentThirst / maxThirst < 0.65f)
+            return true;
+
+        return false;
+    }
+
     public string GetTargetType()
     {
-        if (currentHunger/maxHunger > 0.75f )
+        if (drinkCooldown > 0.0f)
+            return "Wander";
+
+        if (eatCooldown > 0.0f)
+        {
+            return "Wander";
+        }
+
+        if (currentHunger / maxHunger < 0.4f && currentThirst > currentHunger )
+        {
+            return "Hungry";
+        }
+        else if (currentThirst / maxThirst < 0.4f && currentHunger > currentThirst)
+        {
+            return "Thirsty";
+        }
+
+        if (currentHunger/maxHunger > 0.75f)
         {
             if (currentThirst/maxThirst > 0.75f)
             {

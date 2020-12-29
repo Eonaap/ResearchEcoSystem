@@ -30,16 +30,9 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 pos = GetComponent<Transform>().position;
-        //Debug.Log(GetComponent<Transform>().position);
-        if (agent.destination == pos)
+        if (agent.destination == transform.position)
         {
             target = sightings.GetTarget();
-
-            new WaitForSeconds(1);
-            //Debug.Log("Finding new location");
-            //agent.transform.localPosition += new Vector3(0.0f, 2.0f, 0.0f);
-            
             
             agent.SetDestination(target);
         }
