@@ -41,5 +41,5 @@ This is just a simple check if the bunny's hunger or thirst is the lowest.
 If a bunny wouldn't be able to eithe keep their hunger or thirst bar filled, they would start to slowly lose health. They regain this very slowly, but I really wanted to make losing health way more impactful then regaining it. 
 
 This was my thought process through making this AI.
-To end, I want to say that this project made me interested in maybe remaking the whole thing, and getting rid of the flaws that are in the project. Next time, I think it would be interesting to test out the behaviour trees in unity, which isn't a big leap for the way I tackled this project.
+To end, I want to say that this project made me interested in maybe remaking the whole thing, and getting rid of the flaws that are in the project. Next time, I think it would be interesting to test out the behaviour trees in unity, which isn't a big leap for the way I tackled this project. I wish I would've spend some more time into this project, but as a first try in making a game without any real human interaction, it surely learnt me a thing or 2.
 
