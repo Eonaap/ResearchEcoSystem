@@ -11,7 +11,7 @@ I chose to create a small ecosystem. My ecosystem is a peaceful grassland with s
 
 I got the idea about the ecosystem by watching a video on youtube (https://www.youtube.com/watch?v=r_It_X7v-1E). 
 
-I used some cubes and capsules to quickly create something that represents bunnies. after putting some time in a small environment, I started to looking into the navmesh, how you need to bake it, and started to look up what you can do with the navmesh.
+I used some cubes and capsules to quickly create something that represents bunnies. after putting some time in a small environment, I started to look into the navmesh, how you need to bake it, and started to look up what you can do with the navmesh.
 
 ![alt text](https://github.com/Eonaap/ResearchEcoSystem/blob/master/Bunny.png?raw=true)
 
