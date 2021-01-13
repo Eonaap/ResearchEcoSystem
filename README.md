@@ -18,7 +18,7 @@ I used some cubes and capsules to quickly create something that represents bunni
 After I got the bunnies to wander around, I could start adding stats. I first started with adding hunger and thirst. Then I needed to start on something that was more difficult then expected, what's the best way to represent the food and water to the bunnies?
 For the food, I made a quick prefab with some green cylinders. After some trial and error, I opted for working with colliders. I let the bunnies go over all the colliders. Every bunny had a target for food, and water. I updated that target, so that when the status script showed the bunny was thirsty or hungry, it could automatically go over to what it needed. 
 
-IMAGE
+![alt text](https://github.com/Eonaap/ResearchEcoSystem/blob/master/WaterAndFood.png?raw=true)
 
 For the water, it was more difficult to make it accessable for multiple bunnies. I chose to go for boxes of colliders along the waterside. so that would find the invisible colliders, and they could start drinking.
 
